@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My App Store</title>
+  <link rel="stylesheet" href="BaseFile.css" />
+</head>
+
+<body>
+  <header>
+    <div class="top-bar">
+      <span class="menu-icon">&#9776;</span>
+      <h1>Mimics </h1>
+      <div class="header-icons">
+        <img src="images\search-icon.png" id="search-btn" class="icon-circle" alt="Search">
+        <a href="BaseLogin.html"><img src="images\profile-icon.png" id="profile-btn" class="icon-circle"
+            alt="Profile"></a>
+      </div>
+    </div>
+    <div class="menu-overlay" id="menu-overlay">
+      <div class="menu-header">
+        <span class="menu-close">&times;</span>
+
+      </div>
+      <a href="BaseLogin.html" class="menu-link">👤 Log in or Sign up</a>
+      <div class="menu-section">
+        <a href="#" onclick="showCategory('all')">All</a>
+        <a href="#" onclick="showCategory('apps')">Apps</a>
+        <a href="#" onclick="showCategory('games')">Games</a>
+        <a href="#" onclick="showCategory('other')">Other</a>
+
+
+
+        <!-- <a href="#" onclick="showCategory('communication')">Communication</a>
+        <a href="#" onclick="showCategory('tools')">Tools</a>
+        
+        <a href="#" onclick="showCategory('multimedia')">Multimedia</a>
+        <a href="#" onclick="showCategory('productivity')">Productivity</a>
+        <a href="#" onclick="showCategory('lifestyle')">Lifestyle</a>
+        <a href="#" onclick="showCategory('editor')">Editor's Choice</a> -->
+      </div>
+      <hr>
+      <div class="menu-section">
+        <a href="#">❓ Support Page</a>
+      </div>
+    </div>
+    <div class="search-bar" id="search-bar">
+      <input type="text" id="search-input" placeholder="Search apps...">
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="section" id="default-section" style="display: none;">
+      <h2>Welcome to My App Store</h2>
+      <p>Select a category from the menu.</p>
+    </section>
+
+
+
+
+
+
+
+    <section class="section" id="all" style="display:none;">
+      <h2>All Apps</h2>
+      <div class="app-row">
+
+        <!-- ✅ Copy apps from all sections here -->
+
+        <!-- Games -->
+        <div class="app-card">
+          <img src="https://via.placeholder.com/100" alt="Game 1">
+          <h3>Adventure Hero</h3>
+          <p>Exciting platformer game.</p>
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="https://via.placeholder.com/100" alt="Game 2">
+          <h3>Speed Racer</h3>
+          <p>High-speed car racing fun!</p>
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="https://via.placeholder.com/100" alt="Game 3">
+          <h3>Puzzle Land</h3>
+          <p>Test your brain with puzzles.</p>
+          <a href="#" class="btn">Download</a>
+        </div>
+
+        <!-- Apps -->
+        <div class="app-card">
+          <img src="https://via.placeholder.com/100" alt="App 1">
+          <h3>Task Planner</h3>
+          <p>Manage your daily tasks efficiently.</p>
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="https://via.placeholder.com/100" alt="App 2">
+          <h3>Photo Editor</h3>
+          <p>Edit photos with professional tools.</p>
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="https://via.placeholder.com/100" alt="App 3">
+          <h3>Language Buddy</h3>
+          <p>Learn and translate multiple languages.</p>
+          <a href="#" class="btn">Download</a>
+        </div>
+
+        <!-- Other -->
+        <div class="app-card">
+          <img src="https://via.placeholder.com/100" alt="Tool 1">
+          <h3>QR Scanner</h3>
+          <p>Scan and create QR codes instantly.</p>
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="https://via.placeholder.com/100" alt="Tool 2">
+          <h3>Weather Watch</h3>
+          <p>Check real-time weather and forecasts.</p>
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="https://via.placeholder.com/100" alt="Tool 3">
+          <h3>Note Keeper</h3>
+          <p>Take notes, organize and sync easily.</p>
+          <a href="#" class="btn">Download</a>
+        </div>
+
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="section" id="games" style="display:none;">
+
+
+
+
+    
+
+  <div class="game-row">
+    <div class="game-card">
+      <img src="images/shinchan.webp" alt="Game A">
+      <div class="game-footer">
+        
+        <span class="game-note">Best game in app store</span>
+        <div>Rated for 3+</div>
+        <a href="#" class="download-btn">Download</a>
+      </div>
+    </div>
+
+    <div class="game-card">
+      <img src="images/psyco.jpg" alt="Game B">
+      <div class="game-footer">
+        <span class="game-note">Best game in app store</span>
+        <a href="#" class="download-btn">Download</a>
+      </div>
+    </div>
+
+    <div class="game-card">
+      <img src="images/ninja.webp" alt="Game C">
+      <div class="game-footer">
+        <span class="game-note">Best game in app store</span>
+        <a href="#" class="download-btn">Download</a>
+      </div>
+    </div>
+
+    <!-- add more .game-card as needed -->
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <h2>Games Section</h2>
+      <div class="app-row">
+        <div class="app-card">
+          <img src="images/GameImg/pubg.png" alt="Game 1">
+          <h3>Pubg Mobile</h3>
+          <a href="https://d.apkpure.com/b/APK/com.tencent.ig?version=latest" class="btn">Download</a>
+        </div>
+
+        <div class="app-card">
+          <img src="images/GameImg/free fire.png" alt="Game 2">
+          <h3>Free Fire</h3>
+          <a href="https://d.apkpure.com/b/XAPK/com.dts.freefireth?version=latest" class="btn">Download</a>
+        </div>
+
+        <div class="app-card">
+          <img src="images/GameImg/roblox.webp" alt="Game 3">
+          <h3>Roblox</h3>
+          <a href="https://d.apkpure.com/b/XAPK/com.roblox.client?version=latest" class="btn">Download</a>
+        </div>
+
+        <div class="app-card">
+          <img src="images/GameImg/call.webp" alt="Game 4">
+          <h3>Call of Duty</h3>
+          <a href="https://d.apkpure.com/b/XAPK/com.activision.callofduty.shooter?version=latest"
+            class="btn">Download</a>
+        </div>
+
+        <div class="app-card">
+          <img src="images/GameImg/indian bike.webp" alt="Indian Bike">
+          <h3>Indian Bikes</h3>
+          <a href="https://d.apkpure.com/b/XAPK/com.Rohit.IndianBikes?version=latest" class="btn">Download</a>
+        </div>
+
+        <div class="app-card"><img src="images/GameImg/shinoske.jpg" alt="Game 4">
+          <h3>Shinchan</h3>
+          <a href="https://download2281.mediafire.com/hduark45qa1g6QFL4EvaY5LKwjbOIqXfNyGfGNINu8NoFNojxCEClBT6mzxoMDAHLNS4OYbt1jkIRmpK-x66KsZqKMjjLsIcvFGBYRDfnnc0e7BELIJ7dcf8BE-cfJ0tTGJZe9A9JaRrtpkffnVPEDXByAWskF1JURjZM-fNl0pUCZ7K/z31ttbd2j73q593/Shinchan+-+Mission+Shiro.apk" class="btn">Download</a>
+        </div>
+        <div class="app-card"><img src="images/GameImg/psychoworld.webp" alt="Game 4">
+          <h3>Spychoworld</h3>
+          <a href="https://d.apkpure.com/b/XAPK/com.Rohit.IndianBikes?version=latest" class="btn">Download</a> 
+          </div>
+          <div class="app-card"><img src="images/GameImg/ninjahatori.webp" alt="Game 4">
+          <h3>Ninja Hatori</h3>
+          <a href="https://drive.google.com/drive/folders/1nQ3Bs3xf3vjkxPEF9suG4s3wtP1n3XM4?usp=sharing" class="btn">Download</a> 
+          </div>
+
+          <div class="app-card"><img src="images/GameImg/honkaistarrail.webp" alt="Game 4">
+          <h3>Honkai Star Rail</h3>
+          <a href="https://d.apkpure.com/b/XAPK/com.miHoYo.bh3oversea?version=latest" class="btn">Download</a> 
+          </div>
+
+          <div class="app-card"><img src="images/GameImg/briks breaker.webp" alt="Game 4">
+          <h3>Bricks breaker</h3>
+          <a href="https://d.apkpure.com/b/XAPK/com.puzzle.games.brick.breaker.fun?version=latest" class="btn">Download</a> 
+          </div>
+
+          <div class="app-card"><img src="images/GameImg/honkai impact 3rd.webp" alt="Game 4">
+          <h3>Honkai Impact 3rd</h3>
+          <a href="https://d.apkpure.com/b/XAPK/com.miHoYo.bh3global?version=latest" class="btn">Download</a> 
+          </div>
+
+          <div class="app-card"><img src="images/GameImg/tearsofthemis.webp" alt="Game 4">
+          <h3>Tears Of Themis</h3>
+          <a href="https://d.apkpure.com/b/XAPK/com.miHoYo.tot.glb?version=latest" class="btn">Download</a> 
+          </div>
+
+          <div class="app-card"><img src="images/GameImg/eastpunkjurny.jpg" alt="Game 4">
+          <h3>Eastpunk: Journey</h3>
+          <a href="pending" class="btn">Pre-regiter</a> 
+          </div>
+
+
+      </div>
+
+
+      <div class="game-card">
+      <img src="images/shinchan.webp" alt="Game A">
+      <div class="game-footer">
+        
+        <span class="game-note">Best game in app store</span>
+        <span class="rating">★ 7.7</span>
+        <a href="#" class="download-btn">Download</a>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Apps Section -->
+    <section class="section" id="apps" style="display:none;">
+      <h2>Apps Section</h2>
+
+
+
+
+
+      <div class="app-row">
+        <div class="app-card">
+          <img src="images/planner.png" alt="App 1">
+          <h3>Task Planner</h3>
+          <!-- <p>Manage your daily tasks efficiently.</p> -->
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="C:\Users\Mayuresh\HTML codes\base files\images\photo_editor.png" alt="App 2">
+          <h3>Photo Editor</h3>
+          <!-- <p>Edit photos with professional tools.</p> -->
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="images/planner.png" alt="App 1">
+          <h3>Task Planner</h3>
+          <!-- <p>Manage your daily tasks efficiently.</p> -->
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="C:\Users\Mayuresh\HTML codes\base files\images\photo_editor.png" alt="App 2">
+          <h3>Photo Editor</h3>
+          <!-- <p>Edit photos with professional tools.</p> -->
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="images/planner.png" alt="App 1">
+          <h3>Task Planner</h3>
+          <!-- <p>Manage your daily tasks efficiently.</p> -->
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="C:\Users\Mayuresh\HTML codes\base files\images\photo_editor.png" alt="App 2">
+          <h3>Photo Editor</h3>
+          <!-- <p>Edit photos with professional tools.</p> -->
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="images/planner.png" alt="App 1">
+          <h3>Task Planner</h3>
+          <!-- <p>Manage your daily tasks efficiently.</p> -->
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="C:\Users\Mayuresh\HTML codes\base files\images\photo_editor.png" alt="App 2">
+          <h3>Photo Editor</h3>
+          <!-- <p>Edit photos with professional tools.</p> -->
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="images/planner.png" alt="App 1">
+          <h3>Task Planner</h3>
+          <!-- <p>Manage your daily tasks efficiently.</p> -->
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="C:\Users\Mayuresh\HTML codes\base files\images\photo_editor.png" alt="App 2">
+          <h3>Photo Editor</h3>
+          <!-- <p>Edit photos with professional tools.</p> -->
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="images/planner.png" alt="App 1">
+          <h3>Task Planner</h3>
+          <!-- <p>Manage your daily tasks efficiently.</p> -->
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="C:\Users\Mayuresh\HTML codes\base files\images\photo_editor.png" alt="App 2">
+          <h3>Photo Editor</h3>
+          <!-- <p>Edit photos with professional tools.</p> -->
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="images/planner.png" alt="App 1">
+          <h3>Task Planner</h3>
+          <!-- <p>Manage your daily tasks efficiently.</p> -->
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="C:\Users\Mayuresh\HTML codes\base files\images\photo_editor.png" alt="App 2">
+          <h3>Photo Editor</h3>
+          <!-- <p>Edit photos with professional tools.</p> -->
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="images/planner.png" alt="App 1">
+          <h3>Task Planner</h3>
+          <!-- <p>Manage your daily tasks efficiently.</p> -->
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="C:\Users\Mayuresh\HTML codes\base files\images\photo_editor.png" alt="App 2">
+          <h3>Photo Editor</h3>
+          <!-- <p>Edit photos with professional tools.</p> -->
+          <a href="#" class="btn">Download</a>
+        </div>
+
+        <div class="app-card">
+          <img src="https://via.placeholder.com/100" alt="App 3">
+          <h3>Language Buddy</h3>
+          <p>Learn and translate multiple languages.</p>
+          <a href="#" class="btn">Download</a>
+        </div>
+      </div>
+
+
+
+
+
+
+      <div class="app-row">
+        <div class="app-card">
+          <img src="images/planner.png" alt="App 1">
+          <h3>Task Planner</h3>
+          <!-- <p>Manage your daily tasks efficiently.</p> -->
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="C:\Users\Mayuresh\HTML codes\base files\images\photo_editor.png" alt="App 2">
+          <h3>Photo Editor</h3>
+          <!-- <p>Edit photos with professional tools.</p> -->
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="images/planner.png" alt="App 1">
+          <h3>Task Planner</h3>
+          <!-- <p>Manage your daily tasks efficiently.</p> -->
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="C:\Users\Mayuresh\HTML codes\base files\images\photo_editor.png" alt="App 2">
+          <h3>Photo Editor</h3>
+          <!-- <p>Edit photos with professional tools.</p> -->
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="images/planner.png" alt="App 1">
+          <h3>Task Planner</h3>
+          <!-- <p>Manage your daily tasks efficiently.</p> -->
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="C:\Users\Mayuresh\HTML codes\base files\images\photo_editor.png" alt="App 2">
+          <h3>Photo Editor</h3>
+          <!-- <p>Edit photos with professional tools.</p> -->
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="images/planner.png" alt="App 1">
+          <h3>Task Planner</h3>
+          <!-- <p>Manage your daily tasks efficiently.</p> -->
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="C:\Users\Mayuresh\HTML codes\base files\images\photo_editor.png" alt="App 2">
+          <h3>Photo Editor</h3>
+          <!-- <p>Edit photos with professional tools.</p> -->
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="images/planner.png" alt="App 1">
+          <h3>Task Planner</h3>
+          <!-- <p>Manage your daily tasks efficiently.</p> -->
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="C:\Users\Mayuresh\HTML codes\base files\images\photo_editor.png" alt="App 2">
+          <h3>Photo Editor</h3>
+          <!-- <p>Edit photos with professional tools.</p> -->
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="images/planner.png" alt="App 1">
+          <h3>Task Planner</h3>
+          <!-- <p>Manage your daily tasks efficiently.</p> -->
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="C:\Users\Mayuresh\HTML codes\base files\images\photo_editor.png" alt="App 2">
+          <h3>Photo Editor</h3>
+          <!-- <p>Edit photos with professional tools.</p> -->
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="images/planner.png" alt="App 1">
+          <h3>Task Planner</h3>
+          <!-- <p>Manage your daily tasks efficiently.</p> -->
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="C:\Users\Mayuresh\HTML codes\base files\images\photo_editor.png" alt="App 2">
+          <h3>Photo Editor</h3>
+          <!-- <p>Edit photos with professional tools.</p> -->
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="images/planner.png" alt="App 1">
+          <h3>Task Planner</h3>
+          <!-- <p>Manage your daily tasks efficiently.</p> -->
+          <a href="#" class="btn">Download</a>
+        </div>7
+        <div class="app-card">
+          <img src="C:\Users\Mayuresh\HTML codes\base files\images\photo_editor.png" alt="App 2">
+          <h3>Photo Editor</h3>
+          <!-- <p>Edit photos with professional tools.</p> -->
+          <a href="#" class="btn">Download</a>
+        </div>
+
+        <div class="app-card">
+          <img src="https://via.placeholder.com/100" alt="App 3">
+          <h3>Language Buddy</h3>
+          <p>Learn and translate multiple languages.</p>
+          <a href="#" class="btn">Download</a>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Other Section -->
+    <!-- <section class="section" id="other" style="display:none;">
+      <h2>Other Section</h2>
+      <div class="app-row">
+        <div class="app-card">
+          <img src="https://via.placeholder.com/100" alt="Tool 1">
+          <h3>QR Scanner</h3>
+          
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="https://via.placeholder.com/100" alt="Tool 2">
+          <h3>Weather Watch</h3>
+          
+          <a href="#" class="btn">Download</a>
+        </div>
+        <div class="app-card">
+          <img src="https://via.placeholder.com/100" alt="Tool 3">
+          <h3>Note Keeper</h3>
+          <a href="#" class="btn">Download</a>
+        </div>
+      </div>
+    </section> -->
+
+
+<section class="section" id="other" style="display: none;">
+
+  <h2>Tools Apps</h2>
+  <div class="tools-grid">
+    <div class="tool-app">
+      <img src="images/ToolImg/ZArchiver.webp" alt="ZArchiver">
+      <div class="app-info">
+        <h3>ZArchiver</h3>
+        <p>ZDevs</p>
+        <span class="rating">★ 9.0</span>
+      </div>
+    </div>
+
+    <div class="tool-app">
+      <img src="images/ToolImg/google play service.webp" alt="Google Play Services">
+      <div class="app-info">
+        <h3>Google Play services</h3>
+        <p>Google LLC</p>
+        <span class="rating">★ 7.7</span>
+      </div>
+    </div>
+
+    <div class="tool-app">
+      <img src="images/ToolImg/secure vpn.webp" alt="Secure VPN">
+      <div class="app-info">
+        <h3>Secure VPN</h3>
+        <p>Secure Signal Inc.</p>
+        <span class="rating">★ 8.5</span>
+      </div>
+    </div>
+
+    <div class="tool-app">
+      <img src="images/ToolImg/shareit.webp" alt="SHAREit">
+      <div class="app-info">
+        <h3>SHAREit</h3>
+        <p>Smart Media4U Technology</p>
+        <span class="rating">★ 8.2</span>
+      </div>
+    </div>
+
+    <div class="tool-app">
+      <img src="images/ToolImg/android sytem webapp.webp" alt="WebView">
+      <div class="app-info">
+        <h3>Android WebView</h3>
+        <p>Google LLC</p>
+        <span class="rating">★ 8.5</span>
+      </div>
+    </div>
+
+    <div class="tool-app">
+      <img src="images/ToolImg/activity launcher.webp" alt="Activity Launcher">
+      <div class="app-info">
+        <h3>Activity Launcher</h3>
+        <p>Activity Launcher</p>
+        <span class="rating">★ 7.6</span>
+      </div>
+    </div>
+
+    <div class="tool-app">
+      <img src="images/ToolImg/google play service.webp" alt="AR Services">
+      <div class="app-info">
+        <h3>Google Play Services for AR</h3>
+        <p>Google LLC</p>
+        <span class="rating">★ 6.6</span>
+      </div>
+    </div>
+
+    <div class="tool-app">
+      <img src="images/ToolImg/Xapkinstaller.webp" alt="XAPK Installer">
+      <div class="app-info">
+        <h3>XAPK Installer</h3>
+        <p>TarrySoft</p>
+        <span class="rating">★ 7.9</span>
+      </div>
+    </div>
+
+    <div class="tool-app">
+      <img src="images/ToolImg/honista.webp" alt="Honista">
+      <div class="app-info">
+        <h3>Honista</h3>
+        <p>PerfecDev</p>
+        <span class="rating">★ 10.0</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <footer>
+    <p>&copy; 2025 MyAppStore</p>
+  </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const searchBtn = document.getElementById("search-btn");
+      const searchBar = document.getElementById("search-bar");
+      const searchInput = document.getElementById("search-input");
+      const menuBtn = document.querySelector(".menu-icon");
+      const menuOverlay = document.getElementById("menu-overlay");
+      const menuClose = document.querySelector(".menu-close");
+      const profileBtn = document.getElementById("profile-btn");
+
+      // 🔽 Show welcome section on first load
+      const defaultSection = document.getElementById("default-section");
+      if (defaultSection) {
+        defaultSection.style.display = "block";
+      }
+
+      // 🔽 Toggle search bar
+      if (searchBtn && searchBar) {
+        searchBtn.addEventListener("click", () => {
+          searchBar.classList.toggle("show");
+          if (searchInput) {
+            searchInput.focus();
+          }
+        });
+      }
+
+      // 🔽 Toggle menu overlay
+      if (menuBtn && menuOverlay) {
+        menuBtn.addEventListener("click", () => {
+          menuOverlay.style.display =
+            menuOverlay.style.display === "block" ? "none" : "block";
+        });
+      }
+
+      // 🔽 Close menu overlay
+      if (menuClose && menuOverlay) {
+        menuClose.addEventListener("click", () => {
+          menuOverlay.style.display = "none";
+        });
+      }
+
+      // 🔽 Go to profile page
+      if (profileBtn) {
+        profileBtn.addEventListener("click", () => {
+          window.location.href = "login.html";
+        });
+      }
+
+      // 🔽 Show category section by ID
+      window.showCategory = function (id) {
+        document.querySelectorAll("main section").forEach((section) => {
+          section.style.display = "none";
+        });
+
+        const target = document.getElementById(id);
+        if (target) {
+          target.style.display = "block";
+        }
+
+        // Hide welcome section explicitly
+        const defaultSection = document.getElementById("default-section");
+        if (defaultSection) {
+          defaultSection.style.display = "none";
+        }
+
+        // Hide menu overlay
+        if (menuOverlay) {
+          menuOverlay.style.display = "none";
+        }
+      };
+
+      // 🔍 Search functionality
+      if (searchInput) {
+        searchInput.addEventListener("input", () => {
+          const query = searchInput.value.toLowerCase().trim();
+
+          let anyMatch = false;
+
+          document.querySelectorAll(".section").forEach((section) => {
+            const cards = section.querySelectorAll(".app-card");
+            let sectionHasMatch = false;
+
+            cards.forEach((card) => {
+              const title = card.querySelector("h3").textContent.toLowerCase();
+              const desc = card.querySelector("p").textContent.toLowerCase();
+
+              if (title.includes(query) || desc.includes(query)) {
+                card.style.display = "block";
+                sectionHasMatch = true;
+                anyMatch = true;
+              } else {
+                card.style.display = "none";
+              }
+            });
+
+            section.style.display = sectionHasMatch ? "block" : "none";
+          });
+
+          // If input is empty, show only welcome section
+          if (query === "") {
+            document.querySelectorAll("main section").forEach((section) => {
+              section.style.display = "none";
+            });
+
+            const defaultSection = document.getElementById("default-section");
+            if (defaultSection) {
+              defaultSection.style.display = "block";
+            }
+          }
+        });
+      }
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
