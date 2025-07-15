@@ -5,47 +5,66 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My App Store</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="BaseFile.css" />
 </head>
 
 <body>
   <header>
     <div class="top-bar">
       <span class="menu-icon">&#9776;</span>
-      <h1>Mimics </h1>
+      <h1>Mimics</h1>
       <div class="header-icons">
-        <img src="search-icon.png" id="search-btn" class="icon-circle" alt="Search">
-        <a href="BaseLogin.html"><img src="images\profile-icon.png" id="profile-btn" class="icon-circle"
-            alt="Profile"></a>
-      </div>
+  <img src="images/search-icon.png" id="search-btn" class="icon-circle" alt="Search">
+  <a href="BaseLogin.html">
+    <img src="images/profile-icon.png" id="profile-btn" class="icon-circle" alt="Profile">
+  </a>
+</div>
+
+      <!-- <div class="header-icons">
+        <img src="images/search-icon.png" id="search-btn" class="icon-circle" alt="Search">
+
+        <?php if (isset($_SESSION['user_id'])): ?>
+          
+          <a href="profile.php">
+            <img src="<?= htmlspecialchars($_SESSION['profile_picture'] ?? 'images/profile-icon.png') ?>"
+                 id="profile-btn" class="icon-circle" alt="Profile">
+          </a>
+        <?php else: ?>
+          
+          <a href="login.php">
+            <img src="images/profile-icon.png" id="profile-btn" class="icon-circle" alt="Profile">
+          </a>
+        <?php endif; ?>
+
+      </div> -->
     </div>
+
     <div class="menu-overlay" id="menu-overlay">
       <div class="menu-header">
         <span class="menu-close">&times;</span>
-
       </div>
-      <a href="BaseLogin.html" class="menu-link">👤 Log in or Sign up</a>
+
+      <?php if (isset($_SESSION['user_id'])): ?>
+        <!-- Logged in: show logout -->
+        <a href="logout.php" class="menu-link">🔒 Logout</a>
+      <?php else: ?>
+        <!-- Not logged in: show login & register -->
+        <a href="BaseLogin.html"    class="menu-link">👤 Login</a>
+        <a href="register.php" class="menu-link">✍️ Register</a>
+      <?php endif; ?>
+
       <div class="menu-section">
         <a href="#" onclick="showCategory('all')">All</a>
         <a href="#" onclick="showCategory('apps')">Apps</a>
         <a href="#" onclick="showCategory('games')">Games</a>
         <a href="#" onclick="showCategory('other')">Other</a>
-
-
-
-        <!-- <a href="#" onclick="showCategory('communication')">Communication</a>
-        <a href="#" onclick="showCategory('tools')">Tools</a>
-        
-        <a href="#" onclick="showCategory('multimedia')">Multimedia</a>
-        <a href="#" onclick="showCategory('productivity')">Productivity</a>
-        <a href="#" onclick="showCategory('lifestyle')">Lifestyle</a>
-        <a href="#" onclick="showCategory('editor')">Editor's Choice</a> -->
       </div>
       <hr>
       <div class="menu-section">
         <a href="#">❓ Support Page</a>
       </div>
     </div>
+
     <div class="search-bar" id="search-bar">
       <input type="text" id="search-input" placeholder="Search apps...">
     </div>
@@ -130,6 +149,12 @@
         </div>
 
       </div>
+
+
+
+
+
+
     </section>
 
 
@@ -172,27 +197,30 @@
 
   <div class="game-row">
     <div class="game-card">
-      <img src="shinchan.webp" alt="Game A">
+      <img src="images/shinchan.webp" alt="Game A">
       <div class="game-footer">
         
         <span class="game-note">Best game in app store</span>
-        <div>Rated for 3+</div>
+        <!-- <div>Rated for 5+</div> -->
         <a href="#" class="download-btn">Download</a>
       </div>
     </div>
 
     <div class="game-card">
-      <img src="psyco.jpg" alt="Game B">
+      <img src="images/psyco.jpg" alt="Game B">
       <div class="game-footer">
         <span class="game-note">Best game in app store</span>
+        <!-- <div>Rated for 12+</div> -->
         <a href="#" class="download-btn">Download</a>
       </div>
     </div>
 
     <div class="game-card">
-      <img src="ninja.webp" alt="Game C">
+      <img src="images/ninja.webp" alt="Game C">
       <div class="game-footer">
+        
         <span class="game-note">Best game in app store</span>
+        
         <a href="#" class="download-btn">Download</a>
       </div>
     </div>
@@ -219,19 +247,115 @@
       <h2>Games Section</h2>
       <div class="app-row">
         <div class="app-card">
+          <img src="images/GameImg/wuthering wave- to septiont.webp" alt="Game 1">
+          <h3>Wuthering wave</h3>
+          <a href="https://d.apkpure.com/b/APK/com.tencent.ig?version=latest" class="btn">Download</a>
+        </div>
+
+        <div class="app-card">
+          <img src="images/GameImg/sd gundam G genretion etrnal.webp" alt="Game 2">
+          <h3>SD gundam GENRETION</h3>
+          <a href="https://d.apkpure.com/b/XAPK/com.dts.freefireth?version=latest" class="btn">Download</a>
+        </div>
+
+        <div class="app-card"><img src="images/GameImg/eastpunkjurny.jpg" alt="Game 4">
+          <h3>Eastpunk: Journey</h3>
+          <a href="pending" class="btn">Download</a> 
+          </div>
+
+          <div class="app-card"><img src="images/GameImg/tearsofthemis.webp" alt="Game 4">
+          <h3>Tears Of Themis</h3>
+          <a href="https://d.apkpure.com/b/XAPK/com.miHoYo.tot.glb?version=latest" class="btn">Download</a> 
+          </div>
+
+        <div class="app-card">
+          <img src="images/GameImg/seven knight rebirth.webp" alt="Game 3">
+          <h3>Seven Knight</h3>
+          <a href="https://d.apkpure.com/b/XAPK/com.roblox.client?version=latest" class="btn">Download</a>
+        </div>
+
+        <div class="app-card">
+          <img src="images/GameImg/football 2025.webp" alt="Game 4">
+          <h3>Football 2025</h3>
+          <a href="https://d.apkpure.com/b/XAPK/jp.konami.pesam?version=latest"
+            class="btn">Download</a>
+        </div>
+
+          <div class="app-card"><img src="images/GameImg/honkaistarrail.webp" alt="Game 4">
+          <h3>Honkai Star Rail</h3>
+          <a href="https://d.apkpure.com/b/XAPK/com.miHoYo.bh3oversea?version=latest" class="btn">Download</a> 
+          </div>
+
+          <div class="app-card"><img src="images/GameImg/briks breaker.webp" alt="Game 4">
+          <h3>Bricks breaker</h3>
+          <a href="https://d.apkpure.com/b/XAPK/com.puzzle.games.brick.breaker.fun?version=latest" class="btn">Download</a> 
+          </div>
+
+          <div class="app-card"><img src="images/GameImg/honkai impact 3rd.webp" alt="Game 4">
+          <h3>Honkai Impact 3rd</h3>
+          <a href="https://d.apkpure.com/b/XAPK/com.miHoYo.bh3global?version=latest" class="btn">Download</a> 
+          </div>
+
+          
+
+          
+
+
+      </div>
+
+
+      <div class="game-card">
+      <img src="images/sd gundam G genretion ETERNAL.webp" alt="Game A">
+      <div class="game-footer">
+        <span>Rated</span>
+        <span class="rating">★ 7.7</span>
+        <span class="game-note">Best game in app store</span>
+      
+        <a href="#" class="download-btn">Download</a>
+      </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+<div class="app-row">
+
+
+
+
+          <div class="app-card"><img src="images/GameImg/shinoske.jpg" alt="Game 4">
+          <h3>Shinchan</h3>
+          <a href="https://download2281.mediafire.com/hduark45qa1g6QFL4EvaY5LKwjbOIqXfNyGfGNINu8NoFNojxCEClBT6mzxoMDAHLNS4OYbt1jkIRmpK-x66KsZqKMjjLsIcvFGBYRDfnnc0e7BELIJ7dcf8BE-cfJ0tTGJZe9A9JaRrtpkffnVPEDXByAWskF1JURjZM-fNl0pUCZ7K/z31ttbd2j73q593/Shinchan+-+Mission+Shiro.apk" class="btn">Download</a>
+        </div>
+        <div class="app-card"><img src="images/GameImg/psychoworld.webp" alt="Game 4">
+          <h3>Spychoworld</h3>
+          <a href="https://d.apkpure.com/b/XAPK/com.Rohit.IndianBikes?version=latest" class="btn">Download</a> 
+          </div>
+          <div class="app-card"><img src="images/GameImg/ninjahatori.webp" alt="Game 4">
+          <h3>Ninja Hatori</h3>
+          <a href="https://drive.google.com/drive/folders/1nQ3Bs3xf3vjkxPEF9suG4s3wtP1n3XM4?usp=sharing" class="btn">Download</a> 
+          </div>
+
+        <div class="app-card">
           <img src="images/GameImg/pubg.png" alt="Game 1">
           <h3>Pubg Mobile</h3>
           <a href="https://d.apkpure.com/b/APK/com.tencent.ig?version=latest" class="btn">Download</a>
         </div>
 
         <div class="app-card">
-          <img src="free fire.png" alt="Game 2">
+          <img src="images/GameImg/free fire.png" alt="Game 2">
           <h3>Free Fire</h3>
           <a href="https://d.apkpure.com/b/XAPK/com.dts.freefireth?version=latest" class="btn">Download</a>
         </div>
 
         <div class="app-card">
-          <img src="roblox.webp" alt="Game 3">
+          <img src="images/GameImg/roblox.webp" alt="Game 3">
           <h3>Roblox</h3>
           <a href="https://d.apkpure.com/b/XAPK/com.roblox.client?version=latest" class="btn">Download</a>
         </div>
@@ -249,56 +373,40 @@
           <a href="https://d.apkpure.com/b/XAPK/com.Rohit.IndianBikes?version=latest" class="btn">Download</a>
         </div>
 
-        <div class="app-card"><img src="images/GameImg/shinoske.jpg" alt="Game 4">
-          <h3>Shinchan</h3>
-          <a href="https://download2281.mediafire.com/hduark45qa1g6QFL4EvaY5LKwjbOIqXfNyGfGNINu8NoFNojxCEClBT6mzxoMDAHLNS4OYbt1jkIRmpK-x66KsZqKMjjLsIcvFGBYRDfnnc0e7BELIJ7dcf8BE-cfJ0tTGJZe9A9JaRrtpkffnVPEDXByAWskF1JURjZM-fNl0pUCZ7K/z31ttbd2j73q593/Shinchan+-+Mission+Shiro.apk" class="btn">Download</a>
-        </div>
-        <div class="app-card"><img src="images/GameImg/psychoworld.webp" alt="Game 4">
-          <h3>Spychoworld</h3>
-          <a href="https://d.apkpure.com/b/XAPK/com.Rohit.IndianBikes?version=latest" class="btn">Download</a> 
-          </div>
-          <div class="app-card"><img src="images/GameImg/ninjahatori.webp" alt="Game 4">
-          <h3>Ninja Hatori</h3>
-          <a href="https://drive.google.com/drive/folders/1nQ3Bs3xf3vjkxPEF9suG4s3wtP1n3XM4?usp=sharing" class="btn">Download</a> 
-          </div>
+        
 
-          <div class="app-card"><img src="images/GameImg/honkaistarrail.webp" alt="Game 4">
-          <h3>Honkai Star Rail</h3>
+          <div class="app-card"><img src="images/GameImg/inZOI.webp" alt="Game 4">
+          <h3>inZOI</h3>
           <a href="https://d.apkpure.com/b/XAPK/com.miHoYo.bh3oversea?version=latest" class="btn">Download</a> 
           </div>
 
-          <div class="app-card"><img src="images/GameImg/briks breaker.webp" alt="Game 4">
-          <h3>Bricks breaker</h3>
-          <a href="https://d.apkpure.com/b/XAPK/com.puzzle.games.brick.breaker.fun?version=latest" class="btn">Download</a> 
-          </div>
 
-          <div class="app-card"><img src="images/GameImg/honkai impact 3rd.webp" alt="Game 4">
-          <h3>Honkai Impact 3rd</h3>
-          <a href="https://d.apkpure.com/b/XAPK/com.miHoYo.bh3global?version=latest" class="btn">Download</a> 
+          <div class="app-card"><img src="images/GameImg/bus simulator.webp" alt="Game 4">
+          <h3>Bus Game</h3>
+          <a href="https://d.apkpure.com/b/XAPK/com.zuuks.bus.simulator.ultimate?version=latest" class="btn">Download</a> 
           </div>
-
-          <div class="app-card"><img src="images/GameImg/tearsofthemis.webp" alt="Game 4">
-          <h3>Tears Of Themis</h3>
-          <a href="https://d.apkpure.com/b/XAPK/com.miHoYo.tot.glb?version=latest" class="btn">Download</a> 
-          </div>
-
-          <div class="app-card"><img src="images/GameImg/eastpunkjurny.jpg" alt="Game 4">
-          <h3>Eastpunk: Journey</h3>
-          <a href="pending" class="btn">Pre-regiter</a> 
-          </div>
-
 
       </div>
 
 
-      <div class="game-card">
-      <img src="shinchan.webp" alt="Game A">
+
+
+<div class="game-card">
+      <img src="images/seven knightrbirth.webp" alt="Game A">
       <div class="game-footer">
-        
-        <span class="game-note">Best game in app store</span>
+        <span>Rated</span>
         <span class="rating">★ 7.7</span>
+        <span class="game-note">Best game in app store</span>
+      
         <a href="#" class="download-btn">Download</a>
       </div>
+      </div>
+
+
+
+
+
+
     </section>
 
 
@@ -348,97 +456,97 @@
 
       <div class="app-row">
         <div class="app-card">
-          <img src="images/planner.png" alt="App 1">
+          <img src="images/GameImg/wuthering wave- to septiont.webp" alt="App 1">
           <h3>Task Planner</h3>
           <!-- <p>Manage your daily tasks efficiently.</p> -->
-          <a href="#" class="btn">Download</a>
+          <a href="http" class="btn">Download</a>
         </div>
         <div class="app-card">
-          <img src="C:\Users\Mayuresh\HTML codes\base files\images\photo_editor.png" alt="App 2">
+          <img src="images/AppIMG/photo_editor.png" alt="App 2">
           <h3>Photo Editor</h3>
           <!-- <p>Edit photos with professional tools.</p> -->
           <a href="#" class="btn">Download</a>
         </div>
         <div class="app-card">
-          <img src="images/planner.png" alt="App 1">
+          <img src="images/AppIMG/planner.png" alt="App 1">
           <h3>Task Planner</h3>
           <!-- <p>Manage your daily tasks efficiently.</p> -->
           <a href="#" class="btn">Download</a>
         </div>
         <div class="app-card">
-          <img src="C:\Users\Mayuresh\HTML codes\base files\images\photo_editor.png" alt="App 2">
+          <img src="images/AppIMG/photo_editor.png" alt="App 2">
           <h3>Photo Editor</h3>
           <!-- <p>Edit photos with professional tools.</p> -->
           <a href="#" class="btn">Download</a>
         </div>
         <div class="app-card">
-          <img src="images/planner.png" alt="App 1">
+          <img src="images/AppIMG/planner.png" alt="App 1">
           <h3>Task Planner</h3>
           <!-- <p>Manage your daily tasks efficiently.</p> -->
           <a href="#" class="btn">Download</a>
         </div>
         <div class="app-card">
-          <img src="C:\Users\Mayuresh\HTML codes\base files\images\photo_editor.png" alt="App 2">
+          <img src="images/AppIMG/photo_editor.png" alt="App 2">
           <h3>Photo Editor</h3>
           <!-- <p>Edit photos with professional tools.</p> -->
           <a href="#" class="btn">Download</a>
         </div>
         <div class="app-card">
-          <img src="images/planner.png" alt="App 1">
+          <img src="images/AppIMG/planner.png" alt="App 1">
           <h3>Task Planner</h3>
           <!-- <p>Manage your daily tasks efficiently.</p> -->
           <a href="#" class="btn">Download</a>
         </div>
         <div class="app-card">
-          <img src="C:\Users\Mayuresh\HTML codes\base files\images\photo_editor.png" alt="App 2">
+          <img src="images/AppIMG/photo_editor.png" alt="App 2">
           <h3>Photo Editor</h3>
           <!-- <p>Edit photos with professional tools.</p> -->
           <a href="#" class="btn">Download</a>
         </div>
         <div class="app-card">
-          <img src="images/planner.png" alt="App 1">
+          <img src="images/AppIMG/planner.png" alt="App 1">
           <h3>Task Planner</h3>
           <!-- <p>Manage your daily tasks efficiently.</p> -->
           <a href="#" class="btn">Download</a>
         </div>
         <div class="app-card">
-          <img src="C:\Users\Mayuresh\HTML codes\base files\images\photo_editor.png" alt="App 2">
+          <img src="images/AppIMG/photo_editor.png" alt="App 2">
           <h3>Photo Editor</h3>
           <!-- <p>Edit photos with professional tools.</p> -->
           <a href="#" class="btn">Download</a>
         </div>
         <div class="app-card">
-          <img src="images/planner.png" alt="App 1">
+          <img src="images/AppIMG/planner.png" alt="App 1">
           <h3>Task Planner</h3>
           <!-- <p>Manage your daily tasks efficiently.</p> -->
           <a href="#" class="btn">Download</a>
         </div>
         <div class="app-card">
-          <img src="C:\Users\Mayuresh\HTML codes\base files\images\photo_editor.png" alt="App 2">
+          <img src="images/AppIMG/photo_editor.png" alt="App 2">
           <h3>Photo Editor</h3>
           <!-- <p>Edit photos with professional tools.</p> -->
           <a href="#" class="btn">Download</a>
         </div>
         <div class="app-card">
-          <img src="images/planner.png" alt="App 1">
+          <img src="images/AppIMG/planner.png" alt="App 1">
           <h3>Task Planner</h3>
           <!-- <p>Manage your daily tasks efficiently.</p> -->
           <a href="#" class="btn">Download</a>
         </div>
         <div class="app-card">
-          <img src="C:\Users\Mayuresh\HTML codes\base files\images\photo_editor.png" alt="App 2">
+          <img src="images/AppIMG/photo_editor.png" alt="App 2">
           <h3>Photo Editor</h3>
           <!-- <p>Edit photos with professional tools.</p> -->
           <a href="#" class="btn">Download</a>
         </div>
         <div class="app-card">
-          <img src="images/planner.png" alt="App 1">
+          <img src="images/AppIMG/planner.png" alt="App 1">
           <h3>Task Planner</h3>
           <!-- <p>Manage your daily tasks efficiently.</p> -->
           <a href="#" class="btn">Download</a>
         </div>
         <div class="app-card">
-          <img src="C:\Users\Mayuresh\HTML codes\base files\images\photo_editor.png" alt="App 2">
+          <img src="images/AppIMG/photo_editor.png" alt="App 2">
           <h3>Photo Editor</h3>
           <!-- <p>Edit photos with professional tools.</p> -->
           <a href="#" class="btn">Download</a>
@@ -459,97 +567,97 @@
 
       <div class="app-row">
         <div class="app-card">
-          <img src="images/planner.png" alt="App 1">
+          <img src="images/AppIMG/planner.png" alt="App 1">
           <h3>Task Planner</h3>
           <!-- <p>Manage your daily tasks efficiently.</p> -->
           <a href="#" class="btn">Download</a>
         </div>
         <div class="app-card">
-          <img src="C:\Users\Mayuresh\HTML codes\base files\images\photo_editor.png" alt="App 2">
+          <img src="images/AppIMG/photo_editor.png" alt="App 2">
           <h3>Photo Editor</h3>
           <!-- <p>Edit photos with professional tools.</p> -->
           <a href="#" class="btn">Download</a>
         </div>
         <div class="app-card">
-          <img src="images/planner.png" alt="App 1">
+          <img src="images/AppIMG/planner.png" alt="App 1">
           <h3>Task Planner</h3>
           <!-- <p>Manage your daily tasks efficiently.</p> -->
           <a href="#" class="btn">Download</a>
         </div>
         <div class="app-card">
-          <img src="C:\Users\Mayuresh\HTML codes\base files\images\photo_editor.png" alt="App 2">
+          <img src="images/AppIMG/photo_editor.png" alt="App 2">
           <h3>Photo Editor</h3>
           <!-- <p>Edit photos with professional tools.</p> -->
           <a href="#" class="btn">Download</a>
         </div>
         <div class="app-card">
-          <img src="images/planner.png" alt="App 1">
+          <img src="images/AppIMG/planner.png" alt="App 1">
           <h3>Task Planner</h3>
           <!-- <p>Manage your daily tasks efficiently.</p> -->
           <a href="#" class="btn">Download</a>
         </div>
         <div class="app-card">
-          <img src="C:\Users\Mayuresh\HTML codes\base files\images\photo_editor.png" alt="App 2">
+          <img src="images/AppIMG/photo_editor.png" alt="App 2">
           <h3>Photo Editor</h3>
           <!-- <p>Edit photos with professional tools.</p> -->
           <a href="#" class="btn">Download</a>
         </div>
         <div class="app-card">
-          <img src="images/planner.png" alt="App 1">
+          <img src="images/AppIMG/planner.png" alt="App 1">
           <h3>Task Planner</h3>
           <!-- <p>Manage your daily tasks efficiently.</p> -->
           <a href="#" class="btn">Download</a>
         </div>
         <div class="app-card">
-          <img src="C:\Users\Mayuresh\HTML codes\base files\images\photo_editor.png" alt="App 2">
+          <img src="images/AppIMG/photo_editor.png" alt="App 2">
           <h3>Photo Editor</h3>
           <!-- <p>Edit photos with professional tools.</p> -->
           <a href="#" class="btn">Download</a>
         </div>
         <div class="app-card">
-          <img src="images/planner.png" alt="App 1">
+          <img src="images/AppIMG/planner.png" alt="App 1">
           <h3>Task Planner</h3>
           <!-- <p>Manage your daily tasks efficiently.</p> -->
           <a href="#" class="btn">Download</a>
         </div>
         <div class="app-card">
-          <img src="C:\Users\Mayuresh\HTML codes\base files\images\photo_editor.png" alt="App 2">
+          <img src="images/AppIMG/photo_editor.png" alt="App 2">
           <h3>Photo Editor</h3>
           <!-- <p>Edit photos with professional tools.</p> -->
           <a href="#" class="btn">Download</a>
         </div>
         <div class="app-card">
-          <img src="images/planner.png" alt="App 1">
+          <img src="images/AppIMG/planner.png" alt="App 1">
           <h3>Task Planner</h3>
           <!-- <p>Manage your daily tasks efficiently.</p> -->
           <a href="#" class="btn">Download</a>
         </div>
         <div class="app-card">
-          <img src="C:\Users\Mayuresh\HTML codes\base files\images\photo_editor.png" alt="App 2">
+          <img src="images/AppIMG/photo_editor.png" alt="App 2">
           <h3>Photo Editor</h3>
           <!-- <p>Edit photos with professional tools.</p> -->
           <a href="#" class="btn">Download</a>
         </div>
         <div class="app-card">
-          <img src="images/planner.png" alt="App 1">
+          <img src="images/AppIMG/planner.png" alt="App 1">
           <h3>Task Planner</h3>
           <!-- <p>Manage your daily tasks efficiently.</p> -->
           <a href="#" class="btn">Download</a>
         </div>
         <div class="app-card">
-          <img src="C:\Users\Mayuresh\HTML codes\base files\images\photo_editor.png" alt="App 2">
+          <img src="images/AppIMG/photo_editor.png" alt="App 2">
           <h3>Photo Editor</h3>
           <!-- <p>Edit photos with professional tools.</p> -->
           <a href="#" class="btn">Download</a>
         </div>
         <div class="app-card">
-          <img src="images/planner.png" alt="App 1">
+          <img src="images/AppIMG/planner.png" alt="App 1">
           <h3>Task Planner</h3>
           <!-- <p>Manage your daily tasks efficiently.</p> -->
           <a href="#" class="btn">Download</a>
         </div>7
         <div class="app-card">
-          <img src="C:\Users\Mayuresh\HTML codes\base files\images\photo_editor.png" alt="App 2">
+          <img src="images/AppIMG/photo_editor.png" alt="App 2">
           <h3>Photo Editor</h3>
           <!-- <p>Edit photos with professional tools.</p> -->
           <a href="#" class="btn">Download</a>
@@ -562,6 +670,51 @@
           <a href="#" class="btn">Download</a>
         </div>
       </div>
+
+
+
+      <div class="entertainment-section">
+  <h2>Entertainment Apps</h2>
+  <div class="entertainment-grid">
+
+    <a href="#" class="entertainment-card">
+      <img src="images/sd gundam G genretion ETERNAL.webp" alt="Netflix">
+      <div class="app-name">Netflix</div>
+      <div class="app-rating"><span>★</span> 7.2</div>
+    </a>
+
+    <a href="#" class="entertainment-card">
+      <img src="images/seven knightrbirth.webp" alt="Tubi TV">
+      <div class="app-name">Tubi TV</div>
+      <div class="app-rating"><span>★</span> 8.2</div>
+    </a>
+
+    <a href="#" class="entertainment-card">
+      <img src="images/shinchan.webp" alt="Google Play Games">
+      <div class="app-name">Google Play Games</div>
+      <div class="app-rating"><span>★</span> 8.1</div>
+    </a>
+
+    <a href="#" class="entertainment-card">
+      <img src="https://i.imgur.com/92sErZP.png" alt="YouTube TV">
+      <div class="app-name">YouTube for Android TV</div>
+      <div class="app-rating"><span>★</span> 7.0</div>
+    </a>
+
+    <a href="#" class="entertainment-card">
+      <img src="https://i.imgur.com/mmdVKfA.jpg" alt="HiTV">
+      <div class="app-name">HiTV:K-Dramas Base Camp</div>
+      <div class="app-rating"><span>★</span> 7.0</div>
+    </a>
+
+    <a href="#" class="entertainment-card">
+      <img src="https://i.imgur.com/EVuV0ut.jpg" alt="Vahaflix">
+      <div class="app-name">Vahaflix - Dramas & Shows</div>
+      <div class="app-rating"><span>★</span> 7.1</div>
+    </a>
+
+  </div>
+</div>
     </section>
 
 
