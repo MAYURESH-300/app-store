@@ -435,13 +435,13 @@ footer {
 /* Each game card */
 .game-cardx {
   flex: 0 0 auto;              
-  width: 400px;                
+  width: 350px;                
   text-align: center;
 }
 
 /* Fixed image size */
 .game-cardx img {
-  width: 400px;
+  width: 350px;
   height: 200px;
   object-fit: cover;
   border-radius: 8px;
