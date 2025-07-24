@@ -138,7 +138,7 @@
 
       try {
         await signInWithEmailAndPassword(auth, email, password);
-        window.location.href = 'base.html';
+        window.location.href = 'index.html';
       } catch (err) {
         errorMsg.textContent = err.message;
         errorMsg.style.display = 'block';
