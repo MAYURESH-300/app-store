@@ -2,13 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Login - MyAppStore</title>
   <style>
-    * {
-      box-sizing: border-box;
+    html, body {
+      height: 100%;
       margin: 0;
       padding: 0;
+    }
+
+    * {
+      box-sizing: border-box;
       font-family: 'Segoe UI', sans-serif;
     }
 
@@ -18,7 +22,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
     }
 
     .login-container {
@@ -33,7 +36,6 @@
     .login-container h2 {
       text-align: center;
       margin-bottom: 25px;
-      color: #ffffff;
     }
 
     .login-form {
@@ -68,7 +70,6 @@
       border-radius: 5px;
       font-weight: bold;
       cursor: pointer;
-      transition: background-color 0.3s ease;
     }
 
     .login-form button:hover {
@@ -94,7 +95,7 @@
     .error-message {
       color: #ff4d4d;
       text-align: center;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
       display: none;
     }
   </style>
@@ -102,42 +103,47 @@
 <body>
   <div class="login-container">
     <h2>Login to MyAppStore</h2>
-    <form class="login-form" onsubmit="return validateLogin(event)">
-      <div class="error-message" id="error-msg">Invalid email or password</div>
-
+    <div class="error-message" id="error-msg"></div>
+    <form id="login-form" class="login-form">
       <label for="email">Email</label>
-      <input type="email" id="email" placeholder="Enter your email" required />
-
+      <input type="email" id="email" name="email" placeholder="Enter your email" required />
       <label for="password">Password</label>
-      <input type="password" id="password" placeholder="Enter your password" required />
-
+      <input type="password" id="password" name="password" placeholder="Enter your password"  required />
       <button type="submit">Login</button>
-
-      <p class="signup-link">Don't have an account? <a href="#">Sign up</a></p>
     </form>
+    <p class="signup-link">Don't have an account? <a href="BaseSignUp.html">Sign up</a></p>
   </div>
 
-  <script>
-    function validateLogin(event) {
-      event.preventDefault(); // stop form from submitting
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
-      const errorMsg = document.getElementById("error-msg");
+    const firebaseConfig = {
+      apiKey: "AIzaSyALXPZ3qQDw3QSmAXe_XjPvfRengwEk2LI",
+      authDomain: "login-page-ea453.firebaseapp.com",
+      projectId: "login-page-ea453",
+      storageBucket: "login-page-ea453.appspot.com",
+      messagingSenderId: "1006256283474",
+      appId: "1:1006256283474:web:721f482c0c71946f97e48b"
+    };
 
-      const fixedEmail = "mayuresh@example.com";
-      const fixedPassword = "mayuresh123";
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
 
-      if (email === fixedEmail && password === fixedPassword) {
-        // ✅ Login successful → redirect to base.html
-        window.location.href = "base.html";
-      } else {
-        // ❌ Invalid login
-        errorMsg.style.display = "block";
+    document.getElementById('login-form').addEventListener('submit', async e => {
+      e.preventDefault();
+      const email    = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const errorMsg = document.getElementById('error-msg');
+
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        window.location.href = 'base.html';
+      } catch (err) {
+        errorMsg.textContent = err.message;
+        errorMsg.style.display = 'block';
       }
-
-      return false; // prevent default form action
-    }
+    });
   </script>
 </body>
 </html>
