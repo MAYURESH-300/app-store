@@ -115,9 +115,17 @@
   </div>
 
   <script type="module">
+    // —— 1) Firebase imports ——
     import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
-    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+    import {
+      getAuth,
+      onAuthStateChanged,
+      setPersistence,
+      browserLocalPersistence,
+      signInWithEmailAndPassword
+    } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
+    // —— 2) Your Firebase config & init ——
     const firebaseConfig = {
       apiKey: "AIzaSyALXPZ3qQDw3QSmAXe_XjPvfRengwEk2LI",
       authDomain: "login-page-ea453.firebaseapp.com",
@@ -126,25 +134,59 @@
       messagingSenderId: "1006256283474",
       appId: "1:1006256283474:web:721f482c0c71946f97e48b"
     };
-
-    const app = initializeApp(firebaseConfig);
+    const app  = initializeApp(firebaseConfig);
     const auth = getAuth(app);
 
-    document.getElementById('login-form').addEventListener('submit', async e => {
-      e.preventDefault();
-      const email    = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      const errorMsg = document.getElementById('error-msg');
-
-      try {
-        await signInWithEmailAndPassword(auth, email, password);
-        window.location.href = 'base.html';
-      } catch (err) {
-        errorMsg.textContent = err.message;
-        errorMsg.style.display = 'block';
+    // —— 3) Protect page: redirect to login if not signed in ——
+    onAuthStateChanged(auth, user => {
+      if (!user) {
+        window.location.href = 'BaseLogin.html';
       }
+    });
+
+    // —— 4) DOM-ready: wire up UI and login form ——
+    window.addEventListener('DOMContentLoaded', () => {
+      // Your existing UI logic:
+      document.querySelectorAll('[data-video-id]').forEach(el =>
+        el.addEventListener('click', () => {
+          const container = el.parentNode;
+          const iframe = document.createElement('iframe');
+          iframe.src = `https://youtube.com/embed/${el.dataset.videoId}?autoplay=1`;
+          iframe.allow = 'autoplay; encrypted-media';
+          iframe.style.width = '100%';
+          iframe.style.height = '100%';
+          container.innerHTML = '';
+          container.appendChild(iframe);
+        })
+      );
+
+      // … your search, menu toggle, showCategory, etc. (leave unchanged) …
+
+      // —— 5) Login form with persistence ——
+      const form   = document.getElementById('login-form');
+      const error  = document.getElementById('error-msg');
+
+      form.addEventListener('submit', async e => {
+        e.preventDefault();
+        const email    = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        try {
+          // a) Make session persistent across reloads
+          await setPersistence(auth, browserLocalPersistence);
+          // b) Actually sign in
+          await signInWithEmailAndPassword(auth, email, password);
+          // c) Redirect to protected home
+          window.location.href = 'base.html';
+        } catch (err) {
+          console.error('Login error', err);
+          error.textContent = err.message;
+          error.style.display = 'block';
+        }
+      });
     });
   </script>
 </body>
 </html>
+
 
