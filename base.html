@@ -1536,6 +1536,33 @@
 
 
 
+<!-- Firebase protection + page logic -->
+<script type="module">
+  // 1) Import the Firebase modules
+  import { initializeApp }         from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+  import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+  // 2) Your Firebase config
+  const firebaseConfig = {
+    apiKey: "AIzaSyALXPZ3qQDw3QSmAXe_XjPvfRengwEk2LI",
+    authDomain: "login-page-ea453.firebaseapp.com",
+    projectId: "login-page-ea453",
+    storageBucket: "login-page-ea453.appspot.com",
+    messagingSenderId: "1006256283474",
+    appId: "1:1006256283474:web:721f482c0c71946f97e48b"
+  };
+
+  // 3) Initialize Firebase
+  const app  = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  // 4) Protect this page: if no user, send to login
+  onAuthStateChanged(auth, user => {
+    if (!user) {
+      window.location.href = 'BaseLogin.html';
+    }
+  });
+</script>
 
 
 
@@ -1548,4 +1575,5 @@
 </body>
 
 </html>
+
 
