@@ -204,6 +204,7 @@ body {
   max-width: 180px; */
   text-align: center;
   /* box-shadow: 0 0 10px rgba(0,0,0,0.2); */
+   margin: 5px
 }
 
 
@@ -779,3 +780,4 @@ footer {
   font-size: 0.95em;
   color: #fff;
 }
+
