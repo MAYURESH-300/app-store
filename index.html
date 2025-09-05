@@ -72,7 +72,7 @@
     // 2) Auto-redirect if already signed in
     onAuthStateChanged(auth, user => {
       if (user) {
-        window.location.replace('base.html');
+        window.location.replace('main.html');
       }
     });
 
@@ -86,7 +86,7 @@
       try {
         await setPersistence(auth, browserLocalPersistence);
         await signInWithEmailAndPassword(auth, email, password);
-        window.location.replace('base.html');
+        window.location.replace('main.html');
       } catch (err) {
         error.textContent = err.message;
         error.style.display = 'block';
@@ -95,3 +95,4 @@
   </script>
 </body>
 </html>
+
